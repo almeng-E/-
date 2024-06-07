@@ -2,7 +2,7 @@
 from foods_database import *
 
 
-while __name__ == "__main__":
+if __name__ == "__main__":
     print("==========================================================================")
     print("---------------------------K-Food Halal Checker---------------------------")
     print()
@@ -10,18 +10,21 @@ while __name__ == "__main__":
     print("!! This program will help you to check whether the food is halal or not")
     while True:
         print()
-        n = input('- Do you want to check the food? (y/n) : ')
-        if n == 'y':
+        btn = input('- Do you want to check the food? (y/n) : ')
+        if btn == 'y':
             food_name = input('Please enter the food name : ')
+            food_name = food_name.replace(" ","").lower()   # 입력한 음식이 띄어쓰기와 대소문자 구분 없이 검색되도록 소문자로 변환
             if food_name in halal_dict:
                 print('This food is halal')
+                print('Enjoy your meal! :)')
             elif food_name in caution_dict:
-                print('This food is caution')
+                print('This food needs caution. Please check the following reasons.')
+                
             elif food_name in haram_dict:
                 print('This food is haram')
             else:
                 print('This food is not in the list')
-        elif n == 'n' :
+        elif btn == 'n' :
             print()
             print('Goodbye. See you next time! :)')
             print("==========================================================================")
@@ -29,10 +32,6 @@ while __name__ == "__main__":
         else:
             print('Please enter y or n')
             continue
-    break
-
-
-
 
 
 
