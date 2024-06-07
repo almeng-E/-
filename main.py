@@ -10,10 +10,10 @@ def show_reason(food_name):
         reasons = caution_reasons
     else:
         reasons = haram_reasons
-
+    print(f'{food_name.upper()} contains the following haram ingredients :')
     for i, idx in enumerate(reasons[food_name]):
-        print(f'{i+1} : ingredient ~ {ingredients[idx]}')
-
+        print(f'{i+1}.  {ingredients[idx]}')
+    print('--------------------------------------------------------------------------')
 
 
 if __name__ == "__main__":
@@ -39,14 +39,13 @@ if __name__ == "__main__":
                 print('Enjoy your meal! :)')
             elif foods_dict[food_name] == 'b':
                 print('This food needs caution, it might contain non-halal ingredients as sub ingredient.')
-                print('Please check the following reasons.')
                 show_reason(food_name)
             elif foods_dict[food_name] == 'c':
-                print('This food is haram, non-halal ingredients are the main ingredients. Please avoid eating this food.')
-                print('Please check the following reasons.')
+                print('This food is haram, non-halal ingredients are its main ingredients. Please avoid eating this food.')
                 show_reason(food_name)
             else:
                 print('This food is not in the list')
+            
         else:
             print('Please enter y or n')
             continue
