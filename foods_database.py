@@ -1,4 +1,5 @@
 # 음식 분류
+
 halal_list = [
     "kimchi", "bibimbap", "japchae", "gyeranjjim", "gyeranmari", "kongguksu", 
     "hobakjuk", "samgyetang", "kkakdugi", "miyeokguk", "sigeumchinamul", 
@@ -22,12 +23,20 @@ haram_list = [
 
 
 
-# 음식 분류 딕셔너리
+# # 음식 분류 딕셔너리
+# # dict comprehension 활용
+# halal_dict = {food: "a" for food in halal_list}
+# # print(halal_dict)
+# caution_dict = {food: "b" for food in caution_list}
+# haram_dict = {food: "c" for food in haram_list}
+
+
+# foods_dict 생성
 # dict comprehension 활용
-halal_dict = {food: "a" for food in halal_list}
-# print(halal_dict)
-caution_dict = {food: "b" for food in caution_list}
-haram_dict = {food: "c" for food in haram_list}
+foods_dict = {food: 'a' for food in halal_list}
+foods_dict.update({food: 'b' for food in caution_list})
+foods_dict.update({food: 'c' for food in haram_list})
+# print(foods_dict)
 
 
 # 주의할 식재료 목록
@@ -39,32 +48,32 @@ ingredients = (
 
 # 주의할 이유 및 하람 이유 딕셔너리
 caution_reasons = {
-    "bulgogi": (8),
-    "tteokbokki": (7, 8, 9),
-    "sundubujjigae": (7),
-    "dakgalbi": (8),
-    "jajangmyeon": (1),
-    "kimbap": (7, 8),
-    "seolleongtang": (8),
-    "galbi": (8),
-    "haemulpajeon": (7),
-    "mandu": (1, 8),
-    "jjamppong": (1),
-    "haejangguk": (8),
-    "bossam": (1),
-    "yangnyeom chicken": (8),
-    "jangjorim": (8),
+    "bulgogi": (8,),
+    "tteokbokki": (7, 8, 9,),
+    "sundubujjigae": (7,),
+    "dakgalbi": (8,),
+    "jajangmyeon": (1, 4,),
+    "kimbap": (2, 7, 8,),
+    "seolleongtang": (8,),
+    "galbi": (8,),
+    "haemulpajeon": (7,),
+    "mandu": (0, 8,),
+    "jjamppong": (1,),
+    "haejangguk": (8,),
+    "bossam": (1,),
+    "yangnyeom chicken": (8,),
+    "jangjorim": (8,),
 }
 
 haram_reasons = {
-    "samgyeopsal": (0),
-    "doenjangjjigae": (0),
-    "soondae": (0, 1),
-    "gopchang": (1, 2, 8),
-    "budaejjigae": (0, 2),
-    "sotteoksotteok": (0, 3),
-    "odeng": (0, 5),
-    "sundae": (0, 1)
+    "samgyeopsal": (0,),
+    "doenjangjjigae": (0,),
+    "soondae": (0, 1,),
+    "gopchang": (0, 1, 8,),
+    "budaejjigae": (0, 2, 3,),
+    "sotteoksotteok": (0, 2, 3,),
+    "odeng": (0, 7,),
+    "sundae": (0, 1,)
 }
 
 
