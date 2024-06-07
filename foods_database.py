@@ -15,7 +15,6 @@ caution_list = [
     "haejangguk", "bossam", "yangnyeom chicken", "jangjorim"
 ]
 
-
 haram_list = [
     "samgyeopsal", "doenjangjjigae", "soondae", "gopchang", "budaejjigae", 
     "sotteoksotteok", "odeng", "sundae"
@@ -79,27 +78,28 @@ haram_reasons = {
 
 # 브랜드와 대표 메뉴 및 할랄 여부를 변환한 딕셔너리
 # 할랄 1 True 하람 0 False
-brands = {
-    "Kyochon Chicken": {"Soy Garlic Chicken": 1, "Honey Combo Chicken": 1},
-    "BHC Chicken": {"Prinkle Chicken": 1, "Gold King Chicken": 1},
-    "BBQ Chicken": {"Golden Olive Chicken": 1, "Jamaica Grilled Chicken": 1},
-    "Bonjuk": {"Abalone Porridge": 1, "Beef Porridge": 1},
-    "Bibigo": {"Bibimbap": 1, "Galbitang": 1},
-    "Hanchon Seolleongtang": {"Seolleongtang": 1, "Doganitang": 1},
-    "Hansot Dosirak": {"Bulgogi Dosirak": 1, "Spicy Pork Dosirak": 0},
-    "Nolboo Budaejjigae": {"Budaejjigae": 1, "Kimchijjigae": 1},
-    "Bongchu Jjimdak": {"Jjimdak": 1, "Soy Sauce Jjimdak": 1},
-    "Saemaeul Sikdang": {"7-Minute Pork Kimchi Jjigae": 0, "Unlimited Beef": 1},
-    "Hongik Donkatsu": {"King Donkatsu": 0, "Cheese Donkatsu": 0},
-    "Sinsun Seolnongtang": {"Seolnongtang": 1, "Woojoktang": 1},
-    "Han's Deli": {"Chicken Doria": 1, "Hamburg Steak": 0},
-    "Lotteria": {"Bulgogi Burger": 1, "Shrimp Burger": 1},
-    "Ashley": {"BBQ Ribs": 0, "Pasta": 1},
-    "Yopgi Tteokbokki": {"Tteokbokki": 1, "Cheese Tteokbokki": 1},
-    "Jaws Tteokbokki": {"Tteokbokki": 1, "Sundae": 1},
-    "VIPS": {"Steak": 0, "Salad Bar": 1},
-    "Hanam Pig House": {"Samgyeopsal": 0, "Hangjeongsal": 0},
-    "Won Halmoni Bossam": {"Bossam": 0, "Jokbal": 0}
+# 브랜드 명은 공식 브랜드 명으로 저장해놓고 싶었지만, 사용자가 입력하여 구분 할 때에 대소문자 구분 없이 비교할 수 있도록 해야 하여 전부 소문자로 교체
+brands_dict = {
+    "kyochonchicken": {"Soy Garlic Chicken": 1, "Honey Combo Chicken": 1},
+    "bhcchicken": {"Prinkle Chicken": 1, "Gold King Chicken": 1},
+    "bbqchicken": {"Golden Olive Chicken": 1, "Jamaica Grilled Chicken": 1},
+    "bonjuk": {"Abalone Porridge": 1, "Beef Porridge": 1},
+    "bibigo": {"Bibimbap": 1, "Galbitang": 1},
+    "hanchonseolleongtang": {"Seolleongtang": 1, "Doganitang": 1},
+    "hansotdosirak": {"Bulgogi Dosirak": 1, "Spicy Pork Dosirak": 0},
+    "nolboobudaejjigae": {"Budaejjigae": 1, "Kimchijjigae": 1},
+    "bongchujjimdak": {"Jjimdak": 1, "Soy Sauce Jjimdak": 1},
+    "saemaeulsikdang": {"7-Minute Pork Kimchi Jjigae": 0, "Unlimited Beef": 1},
+    "hongikdonkatsu": {"King Donkatsu": 0, "Cheese Donkatsu": 0},
+    "sinsunseolnongtang": {"Seolnongtang": 1, "Woojoktang": 1},
+    "han'sdeli": {"Chicken Doria": 1, "Hamburg Steak": 0},
+    "lotteria": {"Bulgogi Burger": 1, "Shrimp Burger": 1},
+    "ashley": {"BBQ Ribs": 0, "Pasta": 1},
+    "yopgitteokbokki": {"Tteokbokki": 1, "Cheese Tteokbokki": 1},
+    "jawstteokbokki": {"Tteokbokki": 1, "Sundae": 1},
+    "vips": {"Steak": 0, "Salad Bar": 1},
+    "hanampighouse": {"Samgyeopsal": 0, "Hangjeongsal": 0},
+    "wonhalmonibossam": {"Bossam": 0, "Jokbal": 0}
 }
 
 

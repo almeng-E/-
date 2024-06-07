@@ -16,24 +16,38 @@ def show_reason(food_name):
     print('--------------------------------------------------------------------------')
 
 
+
+
 if __name__ == "__main__":
     print("==========================================================================")
     print("---------------------------K-Food Halal Checker---------------------------")
     print()
     print("!! Welcome to K-Food Halal Checking Program")
     print("!! This program will help you to check whether the food is halal or not")
+    
     while True:
         print()
-        btn = input('- Do you want to check the food? (y/n) : ')
-        if btn == 'n' :
+        print("┌──────────────────────────────────────────────────────────────────────┐")
+        print("│ Please choose an option:                                             │")
+        print("│                                                                      │")
+        print("│  [1]  Check Food                                                     │")
+        print("│  [2]  Check Brand                                                    │")
+        print("│  [0]  Exit                                                           │")
+        print("└──────────────────────────────────────────────────────────────────────┘")
+        btn = input('- Enter your choice: ')
+        if btn == '0' :
             print()
             print('Goodbye. See you next time! :)')
             print("==========================================================================")
             break
 
-        elif btn == 'y':
+        elif btn == '1':
             food_name = input('Please enter the food name : ')
             food_name = food_name.replace(" ","").lower()   # 입력한 음식이 띄어쓰기와 대소문자 구분 없이 검색되도록 소문자로 변환
+            if food_name not in foods_dict:
+                print('This food is not in the list')
+                print('BACK TO MAIN MENU')
+                continue
             if foods_dict[food_name] == 'a':
                 print('This food is halal')
                 print('Enjoy your meal! :)')
@@ -43,11 +57,21 @@ if __name__ == "__main__":
             elif foods_dict[food_name] == 'c':
                 print('This food is haram, non-halal ingredients are its main ingredients. Please avoid eating this food.')
                 show_reason(food_name)
-            else:
-                print('This food is not in the list')
-            
+
+        elif btn == '2':
+            brand_name = input('Please enter the brand name : ')
+            brand_name_changed = brand_name.replace(" ","").lower()   # 입력한 브랜드가 띄어쓰기와 대소문자 구분 없이 검색되도록 소문자로 변환
+            if brand_name_changed not in brands_dict:
+                print('This brand is not in the list')
+                print('BACK TO MAIN MENU')
+                continue
+            print(f'Here are two best selling menues from {brand_name}.')
+            print('For more information on other menues, try our food name checking service.')
+            print(brands_dict[brand_name_changed])
+            print('--------------------------------------------------------------------------')
+
         else:
-            print('Please enter y or n')
+            print('Please enter [0], [1], or [2] only.')
             continue
 
 
