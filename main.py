@@ -65,15 +65,17 @@ if __name__ == "__main__":
                 print('This brand is not in the list')
                 print('BACK TO MAIN MENU')
                 continue
-            print(f'Here are two best selling menues from {brand_name}.')
-            print('For more information on other menues, try our food name checking service.')
-            print(brands_dict[brand_name_changed])
+            print(f'Here are two best selling menus from {brand_name}.')
+            # print(brands_dict[brand_name_changed])
+            for item, status in brands_dict[brand_name_changed].items():
+                status_str = 'Halal' if status == 1 else 'Haram'
+                print(f"+ {item} : {status_str}")
+            print('For more information on other menus, try our food name checking service.')
             print('--------------------------------------------------------------------------')
 
         else:
             print('Please enter [0], [1], or [2] only.')
             continue
-
 
 
 
