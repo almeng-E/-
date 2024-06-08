@@ -15,7 +15,8 @@ def show_reason(food_name):
         print(f'{i+1}.  {ingredients[v]}')
     # print('--------------------------------------------------------------------------')
 
-
+def print_back_to_menu():
+    print('>> BACK TO MAIN MENU')
 
 
 if __name__ == "__main__":
@@ -27,7 +28,7 @@ if __name__ == "__main__":
     print()
     print("!! Welcome to K-Food Halal Checking Program")
     print("!! This program will help you to check whether the food is halal or not")
-    
+    # 무한 루프 시작
     while True:
         print('--------------------------------------------------------------------------')
         print()
@@ -37,10 +38,12 @@ if __name__ == "__main__":
         print("│  [1]  Check Food                                                     │")
         print("│  [2]  Check Brand                                                    │")
         print("│  [3]  View Search History                                            │")
+        print("│  [4]  Clear Search History                                           │")
         print("│                                                                      │")
         print("│  [0]  Exit                                                           │")
         print("└──────────────────────────────────────────────────────────────────────┘")
         btn = input('- Enter your choice: ')
+        # 탈출 조건
         if btn == '0' :
             print()
             print('Goodbye. See you next time! :)')
@@ -53,7 +56,7 @@ if __name__ == "__main__":
             food_name = food_name.replace(" ","").lower()   
             if food_name not in foods_dict:
                 print('This food is not in the list')
-                print('BACK TO MAIN MENU')
+                print_back_to_menu()
                 continue
             # 검색 기록에 추가
             searched_history.append(("Food", food_name))
@@ -74,7 +77,7 @@ if __name__ == "__main__":
             brand_name_changed = brand_name.replace(" ","").lower()   
             if brand_name_changed not in brands_dict:
                 print('This brand is not in the list')
-                print('BACK TO MAIN MENU')
+                print_back_to_menu()
                 continue
             # 검색 기록에 추가
             searched_history.append(("Brand", brand_name))
@@ -85,24 +88,29 @@ if __name__ == "__main__":
                 status_str = 'Halal' if status == 1 else 'Haram'
                 print(f"+ {item} : {status_str}")
             print('For more information on other menus, try our food name checking service.')
-            # print('--------------------------------------------------------------------------')
 
         elif btn == '3':   
             print('Search History')
             if searched_history == []:
                 print('No search history')
-                print('BACK TO MAIN MENU')
-
+                print_back_to_menu()
+                continue
             else:
                 print('Here is your search history')
                 for i in range(len(searched_history)):
                     # print(f'[{i+1}] {searched_history[i][0]} : {searched_history[i][1]}')
                     print(f'[{i+1:<2}] {searched_history[i][0]:<6} : {searched_history[i][1]:<20}')
 
-        # TODO : 검색기록 삭제 기능 추가 , 검색기록에서 바로 검색 기능 추가 
+        # TODO :  검색기록에서 바로 검색 기능 추가 
+
+        elif btn == '4':
+            searched_history = []
+            print('Search history cleared')
+            print_back_to_menu()
+            continue
 
         else:
-            print('Please enter [0], [1], or [2] only.')
+            print('Invalid input. Please enter a valid number.')
             continue
 
 
