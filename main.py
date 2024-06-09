@@ -1,3 +1,13 @@
+# 융합 기초프로그래밍 실습 과제
+# 60190365 아랍지역학과 최원민
+# https://github.com/almeng-E/mju-basic-programming 
+# 최종 수정일 : 2024.06.10
+
+# ChatGPT 사용 내역 : 버튼 디자인, db 생성
+# 이외의 코드는 전부 직접 작성함
+# -------------------------------------------------------
+
+
 # 메인 실행 파일
 # from foods_database import *
 # import 문 작성
@@ -60,6 +70,7 @@ def set_sect():
         brands_dict = shia_db.brands_dict
 
 
+# 메인 코드
 if __name__ == "__main__":
     # 검색기록 빈 리스트 생성
     searched_history = []
