@@ -40,6 +40,7 @@ def print_check_brand(brand_name):
 
 
 def set_sect():
+    # 전역 변수 접근
     global foods_dict
     global caution_reasons
     global haram_reasons
@@ -71,7 +72,7 @@ if __name__ == "__main__":
     print()
     print("!! Welcome to K-Food Halal Checking Program")
     print("!! This program will help you to check whether the food is halal or not")
-    print("!! Default sect : Sunni")
+    print("!! Default Sect : Sunni")
     # 무한 루프 시작
     while True:
         print('--------------------------------------------------------------------------')
@@ -152,6 +153,9 @@ if __name__ == "__main__":
                 for i in range(len(searched_history)):
                     # print(f'[{i+1}] {searched_history[i][0]} : {searched_history[i][1]}')
                     print(f'[{i+1:<2}] {searched_history[i][0]:<6} : {searched_history[i][1]:<20}')
+                # enumerate를 활용한 코드
+                # for idx, (type, value) in enumerate(searched_history, start=1):
+                #     print(f'[{idx}] {type} : {value}'
             # 검색 기록 선택 기능
             search_num = input('- Enter the number to view the details (Press Enter to MAIN MENU): ')
             # 빈 문자열 입력시 메인 메뉴로 이동
@@ -198,7 +202,7 @@ if __name__ == "__main__":
 
         elif btn == '4':
             searched_history = []
-            print('Search history cleared')
+            print('>> Search history cleared')
             print_back_to_menu()
             continue
 
