@@ -1,8 +1,19 @@
 # 음식 분류
+# 순니파의 할랄 정보를 담은 데이터베이스
+# sunni_db.py와 동일한 형식으로 구성되어 있음
+# sunni_db와 다른 내용 정리 : 
+  # Halal에서 Caution으로 이동:
+    # Bibimbap
+    # Japchae
+    # Kongguksu
+    # Hobakjuk
+    # Samgyetang
+    # Miyeokguk
+  # Caution에서 Haram으로 이동:
+    # Bossam
 
 halal_list = [
-    "kimchi", "bibimbap", "japchae", "gyeranjjim", "gyeranmari", "kongguksu", 
-    "hobakjuk", "samgyetang", "kkakdugi", "miyeokguk", "sigeumchinamul", 
+    "kimchi", "gyeranjjim", "gyeranmari", "kkakdugi", "sigeumchinamul", 
     "japgokbap", "dubu", "hobakjeon", "dotorimuk", "baechukimchi", 
     "mulnaengmyeon", "nokdujeon", "pajeon", "tteokguk", "milmyeon", 
     "kalguksu", "dubujorim", "jeonbokjuk", "beoseotjeongol", "ssalbap", 
@@ -10,24 +21,17 @@ halal_list = [
 ]
 
 caution_list = [
+    "bibimbap", "japchae", "kongguksu", "hobakjuk", "samgyetang", "miyeokguk", 
     "bulgogi", "tteokbokki", "sundubujjigae", "dakgalbi", "jajangmyeon", 
     "kimbap", "seolleongtang", "galbi", "haemulpajeon", "mandu", "jjamppong", 
-    "haejangguk", "bossam", "yangnyeom chicken", "jangjorim"
+    "haejangguk", "yangnyeom chicken", "jangjorim"
 ]
 
 haram_list = [
     "samgyeopsal", "doenjangjjigae", "soondae", "gopchang", "budaejjigae", 
-    "sotteoksotteok", "odeng", "sundae"
+    "sotteoksotteok", "odeng", "sundae", "bossam"
 ]
 
-
-
-# # 음식 분류 딕셔너리
-# # dict comprehension 활용
-# halal_dict = {food: "a" for food in halal_list}
-# # print(halal_dict)
-# caution_dict = {food: "b" for food in caution_list}
-# haram_dict = {food: "c" for food in haram_list}
 
 
 # foods_dict 생성
@@ -38,15 +42,22 @@ foods_dict.update({food: 'c' for food in haram_list})
 # print(foods_dict)
 
 
+
+
 # 주의할 식재료 목록
 # 하람 식재료의 목록은 변경되지 않을 것임
 # 다만 종파 별 식재료 목록이 다를 수 있으므로 추후에 추가할 수 있음 TODO : 종파 별 분류
 ingredients = (
     "Pork", "Pig intestines", "Pork ham", "Pork Bacon", "Lard(pork fat)", "Gelatin", "Alcohol", "Seafood","Non-halal slaughtered meat", "Non-halal cheese"
-    )
+)
 
-# 주의할 이유 및 하람 이유 딕셔너리
 caution_reasons = {
+    "bibimbap": (8,),
+    "japchae": (8,),
+    "kongguksu": (8,),
+    "hobakjuk": (8,),
+    "samgyetang": (8,),
+    "miyeokguk": (8,),
     "bulgogi": (8,),
     "tteokbokki": (7, 8, 9,),
     "sundubujjigae": (7,),
@@ -59,9 +70,8 @@ caution_reasons = {
     "mandu": (0, 8,),
     "jjamppong": (1,),
     "haejangguk": (8,),
-    "bossam": (1,),
     "yangnyeom chicken": (8,),
-    "jangjorim": (8,),
+    "jangjorim": (8,)
 }
 
 haram_reasons = {
@@ -72,9 +82,9 @@ haram_reasons = {
     "budaejjigae": (0, 2, 3,),
     "sotteoksotteok": (0, 2, 3,),
     "odeng": (0, 7,),
-    "sundae": (0, 1,)
+    "sundae": (0, 1,),
+    "bossam": (1,)
 }
-
 
 # 브랜드와 대표 메뉴 및 할랄 여부를 변환한 딕셔너리
 # 할랄 1 True 하람 0 False
@@ -101,9 +111,3 @@ brands_dict = {
     "hanampighouse": {"Samgyeopsal": 0, "Hangjeongsal": 0},
     "wonhalmonibossam": {"Bossam": 0, "Jokbal": 0}
 }
-
-
-
-
-
-

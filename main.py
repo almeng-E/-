@@ -13,11 +13,9 @@ def show_reason(food_name):
     print(f'{food_name.upper()} contains the following haram ingredients :')
     for i, v in enumerate(reasons[food_name]):
         print(f'{i+1}.  {ingredients[v]}')
-    # print('--------------------------------------------------------------------------')
 
 def print_back_to_menu():
     print('>> BACK TO MAIN MENU')
-
 
 def print_check_food(food_name):
     if foods_dict[food_name] == 'a':
