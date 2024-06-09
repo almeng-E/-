@@ -33,7 +33,6 @@ haram_list = [
 ]
 
 
-
 # foods_dict 생성
 # dict comprehension 활용
 foods_dict = {food: 'a' for food in halal_list}

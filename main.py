@@ -1,8 +1,11 @@
 # 메인 실행 파일
-from foods_database import *
+# from foods_database import *
+# import 문 작성
+import sunni_db
+import shia_db
 
 
-
+# 함수 정의
 def show_reason(food_name):
     # print(f'이 {food_name}은 {reasons} 등의 이유로 주의가 필요합니다.')
     # # 이 {음식}은 {이유 1}, {이유 2}, {이유 3} 등의 이유로 주의가 필요합니다.
@@ -36,19 +39,39 @@ def print_check_brand(brand_name):
     print('For more information on other menus, try our food name checking service.')
 
 
-
-
+def set_sect():
+    global foods_dict
+    global caution_reasons
+    global haram_reasons
+    global ingredients
+    global brands_dict
+    if sunni:
+        foods_dict = sunni_db.foods_dict
+        caution_reasons = sunni_db.caution_reasons
+        haram_reasons = sunni_db.haram_reasons
+        ingredients = sunni_db.ingredients
+        brands_dict = sunni_db.brands_dict
+    else:
+        foods_dict = shia_db.foods_dict
+        caution_reasons = shia_db.caution_reasons
+        haram_reasons = shia_db.haram_reasons
+        ingredients = shia_db.ingredients
+        brands_dict = shia_db.brands_dict
 
 
 if __name__ == "__main__":
     # 검색기록 빈 리스트 생성
     searched_history = []
+    # 종파 기본 값 설정
+    sunni = True
+    set_sect()
     # 프로그램 시작
     print("==========================================================================")
     print("---------------------------K-Food Halal Checker---------------------------")
     print()
     print("!! Welcome to K-Food Halal Checking Program")
     print("!! This program will help you to check whether the food is halal or not")
+    print("!! Default sect : Sunni")
     # 무한 루프 시작
     while True:
         print('--------------------------------------------------------------------------')
@@ -60,6 +83,8 @@ if __name__ == "__main__":
         print("│  [2]  Check Brand                                                    │")
         print("│  [3]  View Search History                                            │")
         print("│  [4]  Clear Search History                                           │")
+        print("│                                                                      │")
+        print("│  [9]  Choose Sect ( Sunni , Shia )                                   │")
         print("│                                                                      │")
         print("│  [0]  Exit                                                           │")
         print("└──────────────────────────────────────────────────────────────────────┘")
@@ -176,6 +201,31 @@ if __name__ == "__main__":
             print('Search history cleared')
             print_back_to_menu()
             continue
+
+        elif btn == '9':
+            print('Choose Sect')
+            print('1. Sunni')
+            print('2. Shia')
+            sect = input('- Enter the number to choose the sect: ')
+            if sect == '1':
+                if sunni:
+                    print('>> Sect is already Sunni')
+                else : # 변경
+                    sunni = True
+                    print('>> Sect has been changed to Sunni')                    
+                    set_sect()
+            elif sect == '2':
+                if not sunni:
+                    print('>> Sect is already Shia')
+                else: # 변경
+                    sunni = False
+                    print('>> Sect has been changed to Shia')
+                    set_sect()
+            else:
+                print('Invalid input. Please enter a valid number.')
+            print_back_to_menu()
+            continue
+
 
         else:
             print('Invalid input. Please enter a valid number.')
