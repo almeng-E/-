@@ -30,6 +30,9 @@ def show_reason(food_name):
 def print_back_to_menu():
     print('>> BACK TO MAIN MENU')
 
+def print_invalid_input():
+    print('>> Invalid input. Please enter a valid number.')
+
 def print_check_food(food_name):
     if foods_dict[food_name] == 'a':
         print('This food is halal')
@@ -43,11 +46,10 @@ def print_check_food(food_name):
 
 def print_check_brand(brand_name):
     print(f'Here are two best selling menus from {brand_name}.')
-    for item, status in brands_dict[brand_name_changed].items():
+    for item, status in brands_dict[brand_name].items():
         status_str = 'Halal' if status == 1 else 'Haram'
         print(f"+ {item} : {status_str}")
     print('For more information on other menus, try our food name checking service.')
-
 
 def set_sect():
     # 전역 변수 접근
@@ -68,6 +70,7 @@ def set_sect():
         haram_reasons = shia_db.haram_reasons
         ingredients = shia_db.ingredients
         brands_dict = shia_db.brands_dict
+
 
 
 # 메인 코드
@@ -108,6 +111,7 @@ if __name__ == "__main__":
             print("==========================================================================")
             break
 
+
         elif btn == '1':
             food_name = input('- Please enter the food name : ')
             # 입력한 음식이 띄어쓰기와 대소문자 구분 없이 검색되도록 소문자로 변환
@@ -132,7 +136,6 @@ if __name__ == "__main__":
             #     show_reason(food_name)
 
 
-
         elif btn == '2':
             brand_name = input('- Please enter the brand name : ')
             # 입력한 브랜드가 띄어쓰기와 대소문자 구분 없이 검색되도록 소문자로 변환
@@ -144,7 +147,7 @@ if __name__ == "__main__":
             # 검색 기록에 추가
             searched_history.append(("Brand", brand_name))
             # 브랜드의 대표 메뉴 및 할랄 여부 출력
-            print_check_brand(brand_name)
+            print_check_brand(brand_name_changed)
             # 중복되는 코드를 함수로 만들어서 처리하여, 뒷 내용은 주석 처리 함
             # print(f'Here are two best selling menus from {brand_name}.')
             # # print(brands_dict[brand_name_changed])
@@ -152,6 +155,7 @@ if __name__ == "__main__":
             #     status_str = 'Halal' if status == 1 else 'Haram'
             #     print(f"+ {item} : {status_str}")
             # print('For more information on other menus, try our food name checking service.')
+
 
         elif btn == '3':   
             print('Search History')
@@ -205,10 +209,9 @@ if __name__ == "__main__":
                     #         print(f"+ {item} : {status_str}")
                     #     print('For more information on other menus, try our food name checking service.')
             else:
-                print('Invalid input. Please enter a valid number.')
+                print_invalid_input()
                 print_back_to_menu()
                 continue
-
 
 
         elif btn == '4':
@@ -216,6 +219,7 @@ if __name__ == "__main__":
             print('>> Search history cleared')
             print_back_to_menu()
             continue
+
 
         elif btn == '9':
             print('Choose Sect')
@@ -237,13 +241,13 @@ if __name__ == "__main__":
                     print('>> Sect has been changed to Shia')
                     set_sect()
             else:
-                print('Invalid input. Please enter a valid number.')
+                print_invalid_input()
             print_back_to_menu()
             continue
 
 
         else:
-            print('Invalid input. Please enter a valid number.')
+            print_invalid_input()
             continue
 
 
