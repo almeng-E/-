@@ -139,15 +139,15 @@ if __name__ == "__main__":
         elif btn == '2':
             brand_name = input('- Please enter the brand name : ')
             # 입력한 브랜드가 띄어쓰기와 대소문자 구분 없이 검색되도록 소문자로 변환
-            brand_name_changed = brand_name.replace(" ","").lower()   
-            if brand_name_changed not in brands_dict:
+            brand_name = brand_name.replace(" ","").lower()   
+            if brand_name not in brands_dict:
                 print('This brand is not in the list')
                 print_back_to_menu()
                 continue
             # 검색 기록에 추가
             searched_history.append(("Brand", brand_name))
             # 브랜드의 대표 메뉴 및 할랄 여부 출력
-            print_check_brand(brand_name_changed)
+            print_check_brand(brand_name)
             # 중복되는 코드를 함수로 만들어서 처리하여, 뒷 내용은 주석 처리 함
             # print(f'Here are two best selling menus from {brand_name}.')
             # # print(brands_dict[brand_name_changed])
